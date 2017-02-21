@@ -8,16 +8,17 @@
   },
   "author": "yangke687@gmail.com",
   "license": "ISC",
-  "devDependencies":{
-  	"browserify":"*",
-  	"flux":"*",
-  	"gulp":"*",
-  	"reactify":"*",
-  	"vinyl-source-stream":"*",
-  	"object-assign":"*"
+  "devDependencies": {
+    "browserify": "*",
+    "flux": "*",
+    "gulp": "*",
+    "gulp-connect": "*",
+    "reactify": "*",
+    "vinyl-source-stream": "*",
+    "object-assign": "*"
   },
-  "dependencies":{
-  	"react": "^0.14.7",
-  	"react-dom": "^0.14.7"
+  "dependencies": {
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
   }
 }
