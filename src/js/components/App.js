@@ -1,8 +1,11 @@
 var React = require('react');
 var AppStore = require('../stores/AppStore');
 var AddForm = require('./AddForm.js');
+var AppAPI = require('../utils/appAPI.js');
 
-function getAppState(){
+AppAPI.getContacts();
+
+function getAppState() {
 	return {
 		contacts: AppStore.getContacts()
 	}
@@ -10,26 +13,26 @@ function getAppState(){
 
 var App = React.createClass({
 
-	getInitialState:function(){
+	getInitialState: function() {
 		return getAppState();
 	},
-	componentDidMount: function(){
+	componentDidMount: function() {
 		AppStore.addChangeListener(this._onChange);
 	},
-	componentWillUnmout:function(){
+	componentWillUnmout: function() {
 		AppStore.removeChangeListener(this._onChange);
 	},
-	_onChange:function(){
+	_onChange: function() {
 		this.setState(getAppState());
 	},
-	render: function(){
-		console.log( "here", this.state.contacts );
+	render: function() {
+		console.log("here", this.state.contacts);
 		return (
 			<div>
 				<AddForm />
 			</div>
 		);
 	}
-}); 
+});
 
 module.exports = App;

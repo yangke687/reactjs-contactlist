@@ -1,3 +1,4 @@
 module.exports = {
 	SAVE_CONTACT: "SAVE_CONTACT",
+	RECV_CONTACTS: "RECV_CONTACTS",
 }
