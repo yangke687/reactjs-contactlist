@@ -1,6 +1,7 @@
 var React = require('react');
 var AppStore = require('../stores/AppStore');
 var AddForm = require('./AddForm.js');
+var ContactsList = require('./ContactsList.js');
 var AppAPI = require('../utils/appAPI.js');
 
 AppAPI.getContacts();
@@ -30,6 +31,7 @@ var App = React.createClass({
 		return (
 			<div>
 				<AddForm />
+				<ContactsList contacts={this.state.contacts} />
 			</div>
 		);
 	}
