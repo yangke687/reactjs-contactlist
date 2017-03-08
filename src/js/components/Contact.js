@@ -1,5 +1,5 @@
 var React = require('react');
-var AppAPI = require('../utils/appAPI.js');
+var AppActions = require('../actions/AppActions.js');
 
 var Contact = React.createClass({
 	render: function() {
@@ -16,7 +16,7 @@ var Contact = React.createClass({
 		);
 	},
 	handleRemove: function(id) {
-
+		AppActions.removeContact(id);
 	}
 });
 

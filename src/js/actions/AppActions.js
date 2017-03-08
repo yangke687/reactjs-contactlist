@@ -13,6 +13,12 @@ var AppActions = {
 			actionType: AppConstants.RECV_CONTACTS,
 			contacts: contacts
 		});
+	},
+	removeContact: function(contactID) {
+		AppDispatcher.handleViewAction({
+			actionType: AppConstants.REMOVE_CONTACT,
+			contactID: contactID
+		});
 	}
 };
 
