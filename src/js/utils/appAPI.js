@@ -25,8 +25,17 @@ module.exports = {
 		});
 	},
 	removeContact: function(contactID) {
-		console.log("api removing", contactID);
 		this.firebaseRef = new firebase("https://contactlist-2d3fd.firebaseio.com/" + contactID);
 		this.firebaseRef.remove();
+	},
+	updateContact: function(contact) {
+		var id = contact.id;
+		var updateContact = {
+			name: contact.name,
+			phone: contact.phone,
+			email: contact.email
+		};
+		this.firebaseRef = new firebase("https://contactlist-2d3fd.firebaseio.com/" + id + "/contact");
+		this.firebaseRef.update(updateContact);
 	}
 }

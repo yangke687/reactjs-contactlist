@@ -9,7 +9,7 @@ var Contact = React.createClass({
 				<td>{this.props.contact.phone}</td>
 				<td>{this.props.contact.email}</td>
 				<td>
-					<button className="btn btn-default" onClick={this.handleEdit}>Edit</button>
+					<button className="btn btn-default" onClick={this.handleEdit.bind(this,this.props.contact)}>Edit</button>
 					<button className="btn btn-danger" onClick={this.handleRemove.bind(this,this.props.contact.id)}>Remove</button>
 				</td>
 			</tr>
@@ -17,6 +17,9 @@ var Contact = React.createClass({
 	},
 	handleRemove: function(id) {
 		AppActions.removeContact(id);
+	},
+	handleEdit: function(contact) {
+		AppActions.editContact(contact);
 	}
 });
 

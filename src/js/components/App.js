@@ -1,6 +1,7 @@
 var React = require('react');
 var AppStore = require('../stores/AppStore');
 var AddForm = require('./AddForm.js');
+var EditForm = require('./EditForm.js');
 var ContactsList = require('./ContactsList.js');
 var AppAPI = require('../utils/appAPI.js');
 
@@ -8,7 +9,8 @@ AppAPI.getContacts();
 
 function getAppState() {
 	return {
-		contacts: AppStore.getContacts()
+		contacts: AppStore.getContacts(),
+		contactToEdit: AppStore.getContactToEdit(),
 	}
 }
 
@@ -27,10 +29,14 @@ var App = React.createClass({
 		this.setState(getAppState());
 	},
 	render: function() {
-		console.log("here", this.state.contacts);
+		if (this.state.contactToEdit) {
+			var form = <EditForm contact={this.state.contactToEdit} />;
+		} else {
+			var form = <AddForm />;
+		}
 		return (
 			<div>
-				<AddForm />
+				{form}
 				<ContactsList contacts={this.state.contacts} />
 			</div>
 		);
